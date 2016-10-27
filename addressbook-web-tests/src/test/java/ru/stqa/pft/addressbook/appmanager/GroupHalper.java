@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class GroupHalper extends HelperBase {
+public class GroupHalper extends BaseHelper {
 
   public GroupHalper(ChromeDriver wd) {
     super(wd);

@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends BaseHelper {
   private ChromeDriver wd;
 
   public ContactHelper(ChromeDriver wd) {

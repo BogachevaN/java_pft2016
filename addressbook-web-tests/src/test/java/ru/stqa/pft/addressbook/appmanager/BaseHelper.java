@@ -6,10 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class HelperBase {
+public class BaseHelper {
   protected ChromeDriver wd;
 
-  public HelperBase(ChromeDriver wd) {
+  public BaseHelper(ChromeDriver wd) {
     this.wd = wd;
   }
 

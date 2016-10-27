@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class SessionHelper extends HelperBase {
+public class SessionHelper extends BaseHelper {
 
 
   public SessionHelper(ChromeDriver wd) {

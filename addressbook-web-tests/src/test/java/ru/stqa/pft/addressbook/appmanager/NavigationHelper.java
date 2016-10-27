@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class NavigationHelper extends HelperBase {
+public class NavigationHelper extends BaseHelper {
 
   public NavigationHelper(ChromeDriver wd) {
     super(wd);
