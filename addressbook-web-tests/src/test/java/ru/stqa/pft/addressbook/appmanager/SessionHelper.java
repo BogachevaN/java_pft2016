@@ -6,20 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class SessionHelper {
-  private ChromeDriver wd;
+public class SessionHelper extends HelperBase {
+
 
   public SessionHelper(ChromeDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
   public void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).click();
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+    type(By.name("user"),username);
+    type(By.name("pass"),password);
+    click(By.xpath("//form[@id='LoginForm']/input[3]"));
   }
 }
