@@ -6,8 +6,8 @@ package ru.stqa.pft.sandbox;
 public class MySecondProgram {
   public static void main(String[] args){
 
-    Point p1 = new Point(5,3);
-    Point p2 = new Point(-10,-10);
+    Point p1 = new Point(0,3);
+    Point p2 = new Point(10,10);
     /*вычисление расстояния при помощи функции
     System.out.println("Расстояние между точками p1 и p2 = " + distance(p1,p2));*/
 
