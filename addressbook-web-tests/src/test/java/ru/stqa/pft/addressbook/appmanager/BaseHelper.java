@@ -33,4 +33,10 @@ public class BaseHelper {
       return false;
     }
   }
+
+  protected void closeAlert() {
+    if (isAlertPresent()==true) {
+      wd.switchTo().alert().accept();
+    }
+  }
 }
