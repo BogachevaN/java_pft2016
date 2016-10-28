@@ -7,9 +7,9 @@ import ru.stqa.pft.addressbook.model.GroupData;
 /**
  * Created by Natusik on 27.10.2016.
  */
-public class GroupHalper extends BaseHelper {
+public class GroupHelper extends BaseHelper {
 
-  public GroupHalper(ChromeDriver wd) {
+  public GroupHelper(ChromeDriver wd) {
     super(wd);
   }
 
@@ -48,4 +48,5 @@ public class GroupHalper extends BaseHelper {
   public void submitGroupModification() {
     click(By.name("update"));
   }
+
 }

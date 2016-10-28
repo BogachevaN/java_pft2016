@@ -13,7 +13,7 @@ public class ApplicationManager {
 
   private ContactHelper contactHelper;
   private NavigationHelper navigationHelper;
-  private  GroupHalper groupHalper;
+  private GroupHelper groupHalper;
   private SessionHelper sessionHelper;
 
 
@@ -22,7 +22,7 @@ public class ApplicationManager {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/group.php");
-    groupHalper = new GroupHalper(wd);
+    groupHalper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
@@ -35,7 +35,7 @@ public class ApplicationManager {
     wd.quit();
   }
 
-  public GroupHalper getGroupHalper() {
+  public GroupHelper getGroupHalper() {
     return groupHalper;
   }
 
