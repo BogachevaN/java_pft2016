@@ -4,16 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 /**
  * Created by Natusik on 27.10.2016.
  */
 public class BaseHelper {
-  protected WebDriver wd = new ChromeDriver();
+  protected WebDriver wd;
 
-  public BaseHelper(ChromeDriver wd) {
+  public BaseHelper(WebDriver wd) {
     this.wd = wd;
   }
 

@@ -11,7 +11,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class ContactHelper extends BaseHelper {
 
 
-  public ContactHelper(ChromeDriver wd) {
+  public ContactHelper(WebDriver wd) {
     super(wd);
   }
 
