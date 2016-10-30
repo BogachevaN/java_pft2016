@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -8,14 +9,14 @@ import ru.stqa.pft.addressbook.model.ContactData;
  * Created by Natusik on 27.10.2016.
  */
 public class ContactHelper extends BaseHelper {
-  private ChromeDriver wd;
+
 
   public ContactHelper(ChromeDriver wd) {
     super(wd);
   }
 
   public void submitContactCreation() {
-     click(By.xpath("//div[@id='content']/form/input[21]"));
+     click(By.name("submit"));
   }
 
   public void fillContactForm(ContactData contactData) {
@@ -40,8 +41,9 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void selectContact() {
-
+    if (!isCheckBoxSelected(By.name("selected[]"))) {
       click(By.name("selected[]"));
+    }
   }
 
   public void deleteSelectedContacts() {

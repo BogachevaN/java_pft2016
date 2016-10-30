@@ -36,7 +36,7 @@ public class GroupHelper extends BaseHelper {
   }
 
   public void selectGroup() {
-      if (!wd.findElement(By.name("selected[]")).isSelected()) {
+      if (!isCheckBoxSelected(By.name("selected[]"))) {
         click(By.name("selected[]"));
       }
   }
