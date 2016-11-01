@@ -26,8 +26,13 @@ public class BaseHelper {
 
   protected void type(By locator, String text) {
     WebElement element = findElement(locator);
-    element.clear();
-    element.sendKeys(text);
+    String existingText = element.getAttribute("value");
+    if (text != null){
+      if (! text.equals(existingText)){
+        element.clear();
+        element.sendKeys(text);
+      }
+    }
   }
 
   public boolean isAlertPresent() {
