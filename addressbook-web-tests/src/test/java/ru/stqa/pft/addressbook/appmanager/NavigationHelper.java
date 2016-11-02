@@ -14,14 +14,25 @@ public class NavigationHelper extends BaseHelper {
   }
 
   public void gotoGroupPage() {
+    if (isElementPresent(By.tagName("H1"))
+            && findElement(By.tagName("h1")).getText().equals("groups")
+            && isElementPresent(By.name("new"))){
+      return;
+    }
     click(By.linkText("groups"));
   }
 
   public void returnToHomePage() {
-      click(By.linkText("home page"));
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
+    click(By.linkText("home page"));
   }
 
   public void goToHomePage() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
     click(By.linkText("home"));
   }
 }
