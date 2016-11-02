@@ -1,9 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 
 /**
@@ -20,7 +17,7 @@ public class BaseHelper {
     findElement(locator).click();
   }
 
-  private WebElement findElement(By locator) {
+  protected WebElement findElement(By locator) {
     return wd.findElement(locator);
   }
 
@@ -52,5 +49,14 @@ public class BaseHelper {
 
   protected boolean isCheckBoxSelected(By by) {
     return findElement(by).isSelected();
+  }
+
+  protected boolean isElementPresent(By locator) {
+    try {
+      findElement(locator);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
   }
 }
