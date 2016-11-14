@@ -68,11 +68,25 @@ public class ContactHelper extends BaseHelper {
     closeAlert();
   }
 
+  public void returnToHomePage() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
+    click(By.linkText("home page"));
+  }
+
 
   public void createContact(ContactData contact) {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
+  }
+
+  public void modifyContact(int index, ContactData contact) {
+    initContactModification(index);
+    fillContactForm(contact, false);
+    submitContactModification();
+    returnToHomePage();
   }
 
   public boolean isThereAContact() {
