@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,19 +15,23 @@ public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().goToHomePage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("Elena", "Ivanova", "Novosibirsk city, Lenina street 5 - 14", "89135685945", "Ivanova@mail.ru", "test1"));
+    app.goTo().homePage();
+    if (app.contact().list().size() == 0) {
+      app.contact().create(new ContactData().withFirstname("Elena").withLastname("Ivanova")
+              .withAddress("Novosibirsk city, Lenina street 5 - 14").withMobile("89135685945")
+              .withEmail("Ivanova@mail.ru").withGroup("test1"));
     }
   }
 
   @Test
   public void testContactModification(){
-    List<ContactData> befor = app.getContactHelper().getContactList();
+    List<ContactData> befor = app.contact().list();
     int index = befor.size() - 1;
-    ContactData contact = new ContactData(befor.get(index).getId(),"Elena", "Ivanova", "Novosibirsk city, Lenina street 5 - 14", "89135685945", "Ivanova@mail.ru", null);
-    app.getContactHelper().modifyContact(index, contact);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    ContactData contact = new ContactData().withId(befor.get(index).getId()).withFirstname("Elena")
+      .withLastname("Ivanova").withAddress("Novosibirsk city, Lenina street 5 - 14")
+            .withMobile("89135685945").withEmail("Ivanova@mail.ru");
+    app.contact().modify(index, contact);
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), befor.size());
 
     befor.remove(index);
