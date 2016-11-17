@@ -24,8 +24,8 @@ public class ContactCreationTests extends TestBase {
                 .withEmail("Ivanova@mail.ru").withGroup("test1");
         app.contact().create(contact);
         app.contact().returnToHomePage();
+        assertEquals(app.contact().count(), befor.size() + 1);
         Contacts after = app.contact().all();
-
         assertThat(after, equalTo(
                 befor.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
