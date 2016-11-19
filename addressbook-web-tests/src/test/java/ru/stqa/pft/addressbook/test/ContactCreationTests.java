@@ -20,7 +20,7 @@ public class ContactCreationTests extends TestBase {
         Contacts befor = app.contact().all();
         ContactData contact = new ContactData().withFirstname("Elena").withLastname("Ivanova")
                 .withAddress("Novosibirsk city, Lenina street 5 - 14").withHomePhone("222").withMobilePhone("89135685945")
-                .withWorkPhone("333").withEmail("Ivanova@mail.ru").withGroup("test1");
+                .withWorkPhone("333").withEmail("Ivanova@mail.ru").withGroup(null);
         app.contact().create(contact);
         app.contact().returnToHomePage();
         assertEquals(app.contact().count(), befor.size() + 1);

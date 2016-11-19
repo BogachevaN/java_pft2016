@@ -34,7 +34,9 @@ public class ContactHelper extends BaseHelper {
     type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail() );
     if (creation) {
-      new Select(findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroup() != null) {
+        new Select(findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -47,6 +49,10 @@ public class ContactHelper extends BaseHelper {
 
   public void initContactModificationById(int id) {
     wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+  }
+
+  private void initLookFullInfoContactById(int id) {
+    wd.findElement(By.cssSelector("a[href='view.php?id=" + id + "']")).click();
   }
 
   public void submitContactModification() {
@@ -160,9 +166,17 @@ public class ContactHelper extends BaseHelper {
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getAttribute("value");
+    String address2 = wd.findElement(By.name("address2")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
-            .withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address);
+            .withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address).withAddress2(address2);
   }
+
+  public String InfoFromFullInfoForm(ContactData contact) {
+    initLookFullInfoContactById(contact.getId());
+    return wd.findElement(By.id("content")).getText();
+  }
+
+
 }
