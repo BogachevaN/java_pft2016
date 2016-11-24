@@ -1,0 +1,32 @@
+<list>
+  <contact>
+    <firstname>Elena0</firstname>
+    <lastname>Ivanova0</lastname>
+    <address>Novosibirsk city, Lenina street 5 - 0</address>
+    <homePhone>2220</homePhone>
+    <mobilePhone>89135685945</mobilePhone>
+    <workPhone>3330</workPhone>
+    <email>Ivanova0@mail.ru</email>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>Elena1</firstname>
+    <lastname>Ivanova1</lastname>
+    <address>Novosibirsk city, Lenina street 5 - 1</address>
+    <homePhone>2221</homePhone>
+    <mobilePhone>89135685945</mobilePhone>
+    <workPhone>3331</workPhone>
+    <email>Ivanova1@mail.ru</email>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>Elena2</firstname>
+    <lastname>Ivanova2</lastname>
+    <address>Novosibirsk city, Lenina street 5 - 2</address>
+    <homePhone>2222</homePhone>
+    <mobilePhone>89135685945</mobilePhone>
+    <workPhone>3332</workPhone>
+    <email>Ivanova2@mail.ru</email>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+</list>

@@ -1,6 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.*;
+
+import java.io.File;
 
 
 /**
@@ -29,6 +32,13 @@ public class BaseHelper {
         element.clear();
         element.sendKeys(text);
       }
+    }
+  }
+
+  protected void attach(By locator, File file) {
+    WebElement element = findElement(locator);
+    if (file != null){
+      element.sendKeys(file.getAbsolutePath());
     }
   }
 
