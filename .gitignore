@@ -16,3 +16,4 @@ gradle-app.setting
 sandbox/src/main/java/ru/stqa/pft/sandbox/Point.java
 sandbox/src/main/java/ru/stqa/pft/sandbox/Point.java
 .idea/workspace.xml___jb_tmp___
+*.log
