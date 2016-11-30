@@ -16,8 +16,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactEmailTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().homePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0){
+      app.goTo().homePage();
       app.contact().create(new ContactData().withFirstname("Elena").withLastname("Ivanova")
               .withAddress("Novosibirsk city, Lenina street 5 - 14").withMobilePhone("89135685945")
               .withEmail("Ivanova@mail.ru").withGroup("test1"));

@@ -27,6 +27,7 @@ public class ApplicationManager {
   private GroupHelper groupHalper;
   private SessionHelper sessionHelper;
   private String browser;
+  private DbHelper dBHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -37,6 +38,9 @@ public class ApplicationManager {
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+    dBHelper = new DbHelper();
+
     if (Objects.equals(browser, BrowserType.CHROME)) {
       wd = new ChromeDriver();
     } else if (Objects.equals(browser, BrowserType.FIREFOX)) {
@@ -70,5 +74,9 @@ public class ApplicationManager {
 
   public ContactHelper contact() {
     return contactHelper;
+  }
+
+  public DbHelper db(){
+    return dBHelper;
   }
 }
