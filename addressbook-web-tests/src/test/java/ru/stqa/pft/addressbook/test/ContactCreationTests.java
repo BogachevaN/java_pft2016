@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 
 import java.io.BufferedReader;
@@ -38,12 +39,15 @@ public class ContactCreationTests extends TestBase {
             XStream xStream = new XStream();
             xStream.processAnnotations(ContactData.class);
             List<ContactData> contacts = (List<ContactData>) xStream.fromXML(xml);
+
             return contacts.stream().map((c) -> new Object[]{c}).collect(Collectors.toList()).iterator();
         }
     }
 
     @Test (dataProvider = "validContacts")
     public void testContactCreation(ContactData contact) {
+        Groups groups = app.db().groups();
+        contact.inGroup(groups.iterator().next());
         app.goTo().homePage();
         Contacts befor = app.db().contacts();
         app.contact().create(contact);
@@ -52,15 +56,16 @@ public class ContactCreationTests extends TestBase {
         Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 befor.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+        verifyContactListInUI();
     }
 
-    @Test(enabled = false)
+    @Test
     public void testCurrentDir(){
         File currentDir = new File(".");
         System.out.println(currentDir.getAbsolutePath());
-        File photo = new File("src/test/resources/stru.png");
-        System.out.println(photo.getAbsolutePath());
-        System.out.println(photo.exists());
+        //File photo = new File("src/test/resources/stru.png");
+        //System.out.println(photo.getAbsolutePath());
+        //System.out.println(photo.exists());
     }
 
 

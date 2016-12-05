@@ -21,7 +21,7 @@ public class ContactFullInfoTest extends TestBase {
       app.goTo().homePage();
       app.contact().create(new ContactData().withFirstname("Elena").withLastname("Ivanova")
               .withAddress("Novosibirsk city, Lenina street 5 - 14").withMobilePhone("89135685945")
-              .withEmail("Ivanova@mail.ru").withGroup("test1"));
+              .withEmail("Ivanova@mail.ru"));
     }
   }
 

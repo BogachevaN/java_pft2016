@@ -35,8 +35,10 @@ public class ContactHelper extends BaseHelper {
     type(By.name("email"), contactData.getEmail() );
     attach(By.name("photo"), contactData.getPhoto());
     if (creation) {
-      if (contactData.getGroup() != null) {
-        new Select(findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(findElement(By.name("new_group"))).selectByVisibleText(String.valueOf(contactData.getGroups()
+                .iterator().next().getName()));
       }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));

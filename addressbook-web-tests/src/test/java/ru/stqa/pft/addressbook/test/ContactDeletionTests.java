@@ -20,7 +20,7 @@ public class ContactDeletionTests extends TestBase {
       app.goTo().homePage();
       app.contact().create(new ContactData().withFirstname("Elena").withLastname("Ivanova")
               .withAddress("Novosibirsk city, Lenina street 5 - 14").withMobilePhone("89135685945")
-              .withEmail("Ivanova@mail.ru").withGroup("test1"));
+              .withEmail("Ivanova@mail.ru"));
     }
   }
 
@@ -33,7 +33,7 @@ public class ContactDeletionTests extends TestBase {
     assertEquals(app.contact().count(), befor.size() - 1);
     Contacts after = app.db().contacts();
     MatcherAssert.assertThat(after, CoreMatchers.equalTo(befor.without(deleteContact)));
-
+    verifyContactListInUI();
   }
 
 
