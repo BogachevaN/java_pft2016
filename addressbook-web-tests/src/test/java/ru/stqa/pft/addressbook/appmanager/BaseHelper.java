@@ -4,6 +4,7 @@ import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.*;
 
 import java.io.File;
+import java.util.NoSuchElementException;
 
 
 /**
