@@ -10,7 +10,7 @@ dependencies {
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
 }
 
-task (type: Test) {
+test {
     useTestNG{
         suites 'src/test/resources/testng.xml'
     }
