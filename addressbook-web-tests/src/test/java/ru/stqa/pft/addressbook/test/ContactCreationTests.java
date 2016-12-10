@@ -59,14 +59,7 @@ public class ContactCreationTests extends TestBase {
         verifyContactListInUI();
     }
 
-    @Test
-    public void testCurrentDir(){
-        File currentDir = new File(".");
-        System.out.println(currentDir.getAbsolutePath());
-        //File photo = new File("src/test/resources/stru.png");
-        //System.out.println(photo.getAbsolutePath());
-        //System.out.println(photo.exists());
-    }
+
 
 
 }

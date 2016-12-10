@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.junit.internal.runners.statements.Fail;
+
 import org.openqa.selenium.*;
 
 import java.io.File;

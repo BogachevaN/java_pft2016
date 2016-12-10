@@ -41,7 +41,7 @@ public class ContactHelper extends BaseHelper {
                 .iterator().next().getName()));
       }
     } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
+     // Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
 
@@ -83,9 +83,9 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void returnToHomePage() {
-    if (isElementPresent(By.id("maintable"))){
-      return;
-    }
+    //if (isElementPresent(By.id("maintable"))){
+      //return;
+   // }
     click(By.linkText("home page"));
   }
 
