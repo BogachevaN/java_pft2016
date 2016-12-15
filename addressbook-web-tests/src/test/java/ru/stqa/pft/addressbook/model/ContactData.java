@@ -70,6 +70,8 @@ public class ContactData {
           joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
   private Set<GroupData> groups = new HashSet<GroupData>();
 
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -245,10 +247,16 @@ public class ContactData {
   }
 
   public Groups getGroups() {
+    if (groups == null) {
+      groups = new HashSet<>();
+    }
     return new Groups(groups);
   }
 
   public ContactData inGroup(GroupData group){
+    if (groups == null) {
+      groups = new HashSet<>();
+    }
     groups.add(group);
     return this;
   }

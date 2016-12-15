@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,6 +20,7 @@ public class ContactAddressTest extends TestBase {
               .withAddress("Novosibirsk city, Lenina street 5 - 14").withMobilePhone("89135685945")
               .withEmail("Ivanova@mail.ru"));
     }
+
   }
 
   @Test

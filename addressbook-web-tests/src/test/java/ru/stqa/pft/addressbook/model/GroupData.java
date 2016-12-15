@@ -65,6 +65,9 @@ public class GroupData {
   }
 
   public Contacts getContacts() {
+    if (contacts == null) {
+      contacts = new HashSet<>();
+    }
     return new Contacts(contacts);
   }
 
