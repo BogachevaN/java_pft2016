@@ -22,7 +22,7 @@ public class PointTest {
 
     Point p3 = new Point(0,3);
     Point p4 = new Point(10,10);
-    Assert.assertEquals(p3.distance(p4),"12,21");
+    Assert.assertEquals(p3.distance(p4),"12,20");
 
   }
 }
